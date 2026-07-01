@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luminary | Interactive Glass Calculator</title>
+  <meta name="description"
+    content="A premium glassmorphic calculator with advanced physics-based micro-interactions, full keyboard bindings, and real-time computation.">
+
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- Decorative Accent Glow Orbs -->
+  <div class="bg-orb orb-purple" aria-hidden="true"></div>
+  <div class="bg-orb orb-cyan" aria-hidden="true"></div>
+
+  <main class="app-container">
+    <div class="calculator-card">
+
+      <!-- Calculator Header -->
+      <header class="calc-header">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <h2>Calculator</h2>
+        </div>
+        <div class="indicator-group" aria-hidden="true">
+          <span class="led-light" id="kb-indicator" title="Keyboard Support Active"></span>
+          <span class="led-label">KB</span>
+        </div>
+      </header>
+
+      <!-- Calculator Display -->
+      <div class="calc-display">
+        <div class="display-wrapper">
+          <div class="display-formula" id="display-formula" aria-live="polite"></div>
+          <div class="display-value" id="display-value" aria-live="polite">0</div>
+        </div>
+      </div>
+
+      <!-- Calculator Keypad Grid -->
+      <div class="calc-keypad" id="calc-keypad">
+        <!-- Clear Actions -->
+        <button class="key key-func" data-action="clear" id="key-clear">AC</button>
+        <button class="key key-func" data-action="delete" id="key-delete">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="key-icon">
+            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+            <line x1="18" y1="9" x2="12" y2="15" />
+            <line x1="12" y1="9" x2="18" y2="15" />
+          </svg>
+        </button>
+        <button class="key key-func" data-action="percent" id="key-percent">%</button>
+        <button class="key key-op" data-operator="/" id="key-divide">÷</button>
+
+        <!-- Row 1 Numbers -->
+        <button class="key key-num" data-num="7" id="key-7">7</button>
+        <button class="key key-num" data-num="8" id="key-8">8</button>
+        <button class="key key-num" data-num="9" id="key-9">9</button>
+        <button class="key key-op" data-operator="*" id="key-multiply">×</button>
+
+        <!-- Row 2 Numbers -->
+        <button class="key key-num" data-num="4" id="key-4">4</button>
+        <button class="key key-num" data-num="5" id="key-5">5</button>
+        <button class="key key-num" data-num="6" id="key-6">6</button>
+        <button class="key key-op" data-operator="-" id="key-subtract">−</button>
+
+        <!-- Row 3 Numbers -->
+        <button class="key key-num" data-num="1" id="key-1">1</button>
+        <button class="key key-num" data-num="2" id="key-2">2</button>
+        <button class="key key-num" data-num="3" id="key-3">3</button>
+        <button class="key key-op" data-operator="+" id="key-add">+</button>
+
+        <!-- Bottom Row -->
+        <button class="key key-func" data-action="toggle-sign" id="key-toggle-sign">±</button>
+        <button class="key key-num" data-num="0" id="key-0">0</button>
+        <button class="key key-num" data-num="." id="key-decimal">.</button>
+        <button class="key key-eq" data-action="calculate" id="key-equals">=</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>Press <kbd>Esc</kbd> for Clear | <kbd>Backspace</kbd> for Delete | Keyboard mapping active</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>

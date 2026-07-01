@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura | Ambient Glass Music Player</title>
+  <meta name="description" content="A premium glassmorphic audio player featuring rich visual vinyl spin animations, customizable playlist drawer, volume overlays, and full interactive progress sliders.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Background Glowing Orbs -->
+  <div class="bg-orb orb-indigo" aria-hidden="true"></div>
+  <div class="bg-orb orb-rose" aria-hidden="true"></div>
+
+  <main class="player-container">
+    <div class="player-card">
+      
+      <!-- Player Top Bar -->
+      <header class="player-header">
+        <div class="brand">
+          <span class="brand-spark"></span>
+          <h1>Aura</h1>
+        </div>
+        
+        <!-- Toggle Playlist Button -->
+        <button class="header-action-btn" id="playlist-toggle-btn" aria-label="Toggle Playlist" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="action-icon"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </button>
+      </header>
+
+      <!-- Vinyl Disk / Album Section -->
+      <div class="album-section">
+        <div class="vinyl-container" id="vinyl-container">
+          <div class="vinyl-disk" id="vinyl-disk">
+            <div class="vinyl-grooves"></div>
+            <img src="/covers/cover1.png" alt="Album Cover" class="album-cover" id="album-cover">
+            <div class="vinyl-center-hole"></div>
+          </div>
+        </div>
+        
+        <!-- Song Details Metadata -->
+        <div class="song-meta">
+          <span class="song-genre" id="song-genre">Synthwave</span>
+          <h2 class="song-title" id="song-title">Neon Horizon</h2>
+          <p class="song-artist" id="song-artist">Solar Flare</p>
+        </div>
+      </div>
+
+      <!-- Playback Timeline Progress Bar -->
+      <div class="timeline-section">
+        <div class="time-readout">
+          <span id="time-current">0:00</span>
+          <span id="time-duration">0:00</span>
+        </div>
+        <div class="progress-bar-container">
+          <input type="range" class="progress-slider" id="progress-slider" min="0" max="100" value="0" aria-label="Seek Song Track">
+          <div class="progress-track" id="progress-track"></div>
+        </div>
+      </div>
+
+      <!-- Playback Navigation Controls -->
+      <div class="controls-section">
+        <!-- Shuffle -->
+        <button class="ctrl-btn" id="btn-shuffle" aria-label="Shuffle Playlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+        </button>
+        
+        <!-- Prev -->
+        <button class="ctrl-btn ctrl-btn-step" id="btn-prev" aria-label="Previous Track">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+        </button>
+
+        <!-- Play/Pause Toggle -->
+        <button class="ctrl-btn btn-play" id="btn-play" aria-label="Play Track">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="play-icon" id="play-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pause-icon" id="pause-icon" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+
+        <!-- Next -->
+        <button class="ctrl-btn ctrl-btn-step" id="btn-next" aria-label="Next Track">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+        </button>
+
+        <!-- Loop -->
+        <button class="ctrl-btn" id="btn-loop" aria-label="Repeat Track">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </button>
+      </div>
+
+      <!-- Volume Mixer slider -->
+      <div class="volume-section">
+        <button class="volume-toggle-btn" id="volume-toggle-btn" aria-label="Mute Volume">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-icon" id="vol-high-icon"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-icon" id="vol-mute-icon" style="display:none;"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        </button>
+        <div class="volume-slider-container">
+          <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="80" aria-label="Volume Slider">
+          <div class="volume-track" id="volume-track"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Playlist Drawer (Slides from Right/Right side overlay) -->
+    <div class="playlist-drawer" id="playlist-drawer" aria-hidden="true" tabindex="-1">
+      <div class="playlist-backdrop" id="playlist-backdrop"></div>
+      <div class="playlist-content">
+        <header class="playlist-header">
+          <h2>Queue Playlist</h2>
+          <button class="playlist-close-btn" id="playlist-close-btn" aria-label="Close Playlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </header>
+        
+        <!-- Track List container -->
+        <div class="playlist-tracks" id="playlist-tracks" role="list">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Aura Ambient Audio. Responsive glassmorphic player.</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

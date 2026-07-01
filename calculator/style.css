@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Luminary Glass Calculator Stylesheet
+   ========================================================================== */
+
+/* --- CSS Custom Variables --- */
+:root {
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  /* Colors */
+  --bg-main: #05070f;
+  --bg-calc: rgba(13, 18, 36, 0.45);
+  --bg-screen: rgba(5, 8, 20, 0.7);
+  --border-light: rgba(255, 255, 255, 0.05);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #475569;
+  
+  /* Accent Colors */
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+  --accent-cyan-glow: 0 0 20px rgba(6, 182, 212, 0.45);
+  
+  /* Keys */
+  --key-num-bg: rgba(255, 255, 255, 0.03);
+  --key-num-hover: rgba(255, 255, 255, 0.07);
+  --key-func-bg: rgba(255, 255, 255, 0.05);
+  --key-func-hover: rgba(255, 255, 255, 0.1);
+  --key-op-gradient: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  --key-eq-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  
+  /* Utilities */
+  --glass-blur: blur(20px);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Resets --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --- Decorative Glowing Orbs --- */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.18;
+  pointer-events: none;
+}
+.orb-purple {
+  top: 15%;
+  left: 20%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--accent-purple) 0%, rgba(0,0,0,0) 70%);
+}
+.orb-cyan {
+  bottom: 10%;
+  right: 15%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--accent-cyan) 0%, rgba(0,0,0,0) 70%);
+}
+
+/* --- Main Layout Container --- */
+.app-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* --- Calculator Card (Glassmorphic) --- */
+.calculator-card {
+  width: 100%;
+  background: var(--bg-calc);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-light);
+  border-radius: 32px;
+  padding: 2rem;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* --- Calculator Header --- */
+.calc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: var(--accent-cyan-glow);
+}
+
+.brand h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.indicator-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.led-light {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #334155;
+  transition: var(--transition-smooth);
+}
+
+/* Active LED state */
+.led-light.active {
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+}
+
+.led-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* --- Display Screen Area --- */
+.calc-display {
+  background: var(--bg-screen);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scanline Effect */
+.calc-display::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+.display-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 90px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.display-formula {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent-cyan);
+  min-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.display-value {
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: font-size 0.15s ease;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Hide scrollbar on display text horizontal scroll */
+.display-value::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Calculator Keypad --- */
+.calc-keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.key {
+  border: none;
+  outline: none;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text-main);
+  aspect-ratio: 1;
+  border-radius: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  position: relative;
+  user-select: none;
+}
+
+.key-icon {
+  width: 24px;
+  height: 24px;
+  color: inherit;
+}
+
+/* Inner overlay border */
+.key::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1.2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Number Button Styles */
+.key-num {
+  background: var(--key-num-bg);
+}
+.key-num:hover {
+  background: var(--key-num-hover);
+  transform: translateY(-2px);
+}
+
+/* Function Button Styles */
+.key-func {
+  background: var(--key-func-bg);
+  color: var(--text-muted);
+}
+.key-func:hover {
+  background: var(--key-func-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Operator Button Styles */
+.key-op {
+  background: var(--key-op-gradient);
+  color: #ffffff;
+}
+.key-op:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+/* Equal Button Styles */
+.key-eq {
+  background: var(--key-eq-gradient);
+  color: #ffffff;
+  box-shadow: var(--accent-cyan-glow);
+}
+.key-eq:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.6);
+}
+
+/* Active pressed state (For clicks and Keyboard bindings) */
+.key:active, .key.key-pressed {
+  transform: scale(0.93) translateY(0) !important;
+  opacity: 0.8;
+  filter: brightness(1.2);
+}
+
+/* --- Footer Area --- */
+.app-footer {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.app-footer kbd {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+}
+
+.app-footer p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1rem;
+  }
+  
+  .calculator-card {
+    padding: 1.5rem;
+    border-radius: 24px;
+    gap: 1.25rem;
+  }
+  
+  .calc-keypad {
+    gap: 0.65rem;
+  }
+  
+  .key {
+    border-radius: 14px;
+    font-size: 1.2rem;
+  }
+  
+  .key::before {
+    border-radius: 14px;
+  }
+  
+  .display-value {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .app-container {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .app-footer {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aryan Shukla | Creative Frontend Developer & UX Designer</title>
+  <meta name="description"
+    content="Personal portfolio of Aryan Shukla showcasing interactive frontend creations including immersive galleries, retro-futurism calculators, and glassmorphic music players.">
+
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- Background Ambient Glow Orbs -->
+  <div class="bg-orb orb-indigo" aria-hidden="true"></div>
+  <div class="bg-orb orb-cyan" aria-hidden="true"></div>
+
+  <!-- Glassmorphic Floating Header -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-dot"></span>
+        <span>Aryan Shukla</span>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#resume" class="nav-link">Milestones</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Hamburger (Mobile) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          class="toggle-icon">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-content">
+      <div class="hero-badge reveal">Creative Frontend Developer</div>
+      <h1 class="hero-title reveal">
+        Designing immersive <br>
+        <span class="gradient-text">digital interfaces</span>.
+      </h1>
+      <p class="hero-subtitle reveal">I build responsive web applications utilizing clean HTML5, custom vanilla CSS
+        tokens, and optimized JavaScript engines.</p>
+
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-grid-decoration" aria-hidden="true"></div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-tag">Overview</span>
+        <h2>About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <h3>My Story</h3>
+          <p>I am a frontend developer focused on crafting tactile, premium web experiences. I prioritize clean
+            typography, micro-interactions, dark mode aesthetics, and robust responsiveness.</p>
+          <p>This workspace documents an agentic pair-programming progression that showcases vanilla implementation
+            capabilities, math accuracy safety in script logic, and audio scheduling.</p>
+        </div>
+
+        <div class="about-skills reveal">
+          <h3>Technical Stack</h3>
+
+          <div class="skill-category">
+            <h4>Core Architecture</h4>
+            <div class="skills-list">
+              <span class="skill-pill">HTML5</span>
+              <span class="skill-pill">CSS3 (Grid & Flexbox)</span>
+              <span class="skill-pill">Vanilla JavaScript</span>
+              <span class="skill-pill">Responsive Layouts</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Builds & Runtimes</h4>
+            <div class="skills-list">
+              <span class="skill-pill">Vite</span>
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">NPM Scripts</span>
+              <span class="skill-pill">Web Audio API</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Design Systems</h4>
+            <div class="skills-list">
+              <span class="skill-pill">Glassmorphism</span>
+              <span class="skill-pill">Keyframe Animations</span>
+              <span class="skill-pill">SVG Iconography</span>
+              <span class="skill-pill">UX Micro-interactions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Showcase Section -->
+  <section class="projects-section" id="projects">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-tag">Creations</span>
+        <h2>Interactive Showcase</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <article class="project-card reveal">
+          <div class="project-art art-gallery">
+            <span class="art-badge">Port 5173</span>
+            <div class="art-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="overlay-icon">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                <circle cx="12" cy="13" r="4" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-details">
+            <span class="project-tag">Task 1</span>
+            <h3>Aetheria Gallery</h3>
+            <p>An immersive visual catalog showcasing photography with tag filtering, responsive masonry grid layout,
+              and keyboard-guided modal lightbox views.</p>
+            <div class="project-actions">
+              <a href="http://localhost:5173/" target="_blank" rel="noopener noreferrer" class="proj-link">
+                <span>Launch App</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="arrow-icon">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal">
+          <div class="project-art art-calc">
+            <span class="art-badge">Port 5174</span>
+            <div class="art-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="overlay-icon">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-details">
+            <span class="project-tag">Task 2</span>
+            <h3>Luminary Calculator</h3>
+            <p>A retro-futuristic digital calculator featuring Share Tech Mono displays, full keyboard binds mapping,
+              sign toggle, percent scales, and float rounding error resolution.</p>
+            <div class="project-actions">
+              <a href="http://localhost:5174/" target="_blank" rel="noopener noreferrer" class="proj-link">
+                <span>Launch App</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="arrow-icon">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card reveal">
+          <div class="project-art art-music">
+            <span class="art-badge">Port 5175</span>
+            <div class="art-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="overlay-icon">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v8" />
+              </svg>
+            </div>
+          </div>
+          <div class="project-details">
+            <span class="project-tag">Task 3</span>
+            <h3>Aura Music Player</h3>
+            <p>A high-end audio deck layout with custom concentric ridges spinning LP vinyl records, timeline scrubbing,
+              volume controls, loop/shuffle modes, and sliding playlist drawer queues.</p>
+            <div class="project-actions">
+              <a href="http://localhost:5175/" target="_blank" rel="noopener noreferrer" class="proj-link">
+                <span>Launch App</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="arrow-icon">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Milestones Resume Section -->
+  <section class="resume-section" id="resume">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-tag">Timeline</span>
+        <h2>Workspace Milestones</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Milestone 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Phase 1</span>
+            <h3>Immersive Image Gallery</h3>
+            <p>Designed a tag-based visual catalog using clean grid systems, zoom-overlay hover cards, and accessible
+              fullscreen lightbox slides.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Phase 2</span>
+            <h3>Digital Calculator Engine</h3>
+            <p>Developed a 4x5 layout with monospaced screen readouts, keypress mappings, active indicator LEDs,
+              divide-by-zero checks, and decimal rounding safety checks.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Phase 3</span>
+            <h3>Glassmorphic Audio Player</h3>
+            <p>Engineered HTML5 Audio integration, custom looping timelines, volume mute mixers, sliding drawer playlist
+              queues, and continuous CSS rotational vinyl discs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section" id="contact">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-tag">Inquire</span>
+        <h2>Contact Me</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Let's Collaborate</h3>
+          <p>Have an interesting project proposal or feedback on this showcase? Fill out the contact form or reach out
+            directly via socials.</p>
+
+          <ul class="contact-socials">
+            <li>
+              <a href="#" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="social-icon">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+                <span>github.com/aryan-shukla</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="social-icon">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                <span>linkedin.com/in/aryan-shukla</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="social-icon">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>aryan.shukla@example.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form">
+          <div class="form-group">
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="form-email">Email</label>
+            <input type="email" id="form-email" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" rows="5" required placeholder="Tell me about your project..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive toast message feedback container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Aryan Shukla Portfolio. Built using Vanilla HTML, CSS, JS.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>
