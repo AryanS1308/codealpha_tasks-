@@ -88,24 +88,6 @@ A modern music player interface with an elegant design.
 
 ---
 
-## 🚀 Getting Started
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/your-repository-name.git
-```
-
-2. Navigate to the project folder
-
-```bash
-cd your-repository-name
-```
-
-3. Open any project folder and run the `index.html` file in your browser.
-
----
-
 ## 📁 Folder Structure
 
 ```
@@ -141,16 +123,3 @@ If you'd like to contribute:
 3. Commit your changes
 4. Open a Pull Request
 
----
-
-## ⭐ Support
-
-If you found these projects helpful, please consider giving this repository a ⭐ on GitHub.
-
----
-
-## 📧 Contact
-
-Feel free to connect with me for collaboration or feedback.
-
-Happy Coding! 🚀
